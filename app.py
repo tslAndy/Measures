@@ -1,11 +1,12 @@
 from flask import Flask, request, Response, render_template
 import json 
 from flask_cors import CORS, cross_origin
+from flask_socketio import SocketIO
 
 app = Flask(__name__)
 app.config['CORS_HEADERS'] = 'Content-Type'
-
 cors = CORS(app)
+socketio = SocketIO(app)
 
 
 measurements = []
@@ -58,4 +59,5 @@ def newmeas():
     return (resp)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    #app.run(debug=True)
+    socketio.run(app, debug=True)
