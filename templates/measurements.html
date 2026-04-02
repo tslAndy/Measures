@@ -45,5 +45,12 @@
     <div id="curve_chart" style="width: 900px; height: 500px"></div>
 </body>
 
+<script text="text/javascript">
+    var socket = io.connect('localhost:5000')
+    socket.on('data_update', function () {
+        window.location.reload()
+    });
+</script>
+
 
 </html>
